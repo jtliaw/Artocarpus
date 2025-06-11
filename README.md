@@ -10,7 +10,8 @@
 
 
 
-![截图_2025-06-11_15-24-53](https://github.com/user-attachments/assets/c0a3bfde-8e45-4252-b694-17450bdf3cb3)
+![截图_2025-06-11_16-07-41](https://github.com/user-attachments/assets/7f3bf7d4-2d6c-4aa9-a67f-4fd2272b9fe4)
+
 
 
 
@@ -26,4 +27,5 @@ Currently only used on Linux
 
 
 
-![截图_2025-06-11_15-34-25](https://github.com/user-attachments/assets/4e8a7a93-c345-4007-83d4-5fe8efc79549)
+![截图_2025-06-11_16-10-04](https://github.com/user-attachments/assets/04c167a5-2545-49a4-bb76-9cb23b8d3ea7)
+
