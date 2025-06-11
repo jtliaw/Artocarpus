@@ -10,7 +10,8 @@
 
 
 
-![截图_2025-06-11_16-07-41](https://github.com/user-attachments/assets/7f3bf7d4-2d6c-4aa9-a67f-4fd2272b9fe4)
+![截图_2025-06-11_16-17-19](https://github.com/user-attachments/assets/17829dec-461f-4bc0-9c24-56a4f868136e)
+
 
 
 
@@ -26,6 +27,7 @@ An Android screen projection software (scrcpy) made with Gemini
 Currently only used on Linux
 
 
+![截图_2025-06-11_16-16-30](https://github.com/user-attachments/assets/fd21c7b5-60ff-4b46-a017-812a6986fca0)
 
-![截图_2025-06-11_16-10-04](https://github.com/user-attachments/assets/04c167a5-2545-49a4-bb76-9cb23b8d3ea7)
+
 
