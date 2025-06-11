@@ -16,6 +16,11 @@
 
 
 
+
+
+
+
+
 An Android screen projection software (scrcpy) made with Gemini
 Currently only used on Linux
 
