@@ -44,36 +44,6 @@
 chmod +x Artocarpus-x86_64.AppImage
 ./Artocarpus-x86_64.AppImage
 
+---
 
-
-无需任何安装步骤，所有依赖均已内置，支持大多数 Linux 发行版（如 Debian、Ubuntu、Mint、Peppermint 等）。
-
-🛠 技术栈
-🐍 Python 3
-
-🖼 Tkinter
-
-📱 ADB + scrcpy
-
-🤖 ChatGPT & Google Gemini 协作开发辅助
-
-🧱 项目结构
-bash
-复制
-编辑
-├── main.py              # 主程序入口
-├── config/              # 配置与预设管理
-├── assets/              # 图标和样式
-├── locale/              # 多语言资源
-├── scrcpy/              # scrcpy 参数封装模块
-└── ...
-📜 开源协议
-本项目基于 MIT License 开源。
-
-你可以自由使用、修改、再发布，但请保留作者署名：
-
-Copyright © 2025
-Developed by JTLIAW
-
-☕ 感谢支持
-如果你觉得这个项目对你有帮助，欢迎点个 ⭐Star 或 Fork 支持项目持续更新！
+## 🚀 如何使用
