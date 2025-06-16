@@ -43,3 +43,27 @@
 ```bash
 chmod +x Artocarpus_scrcpy_gui-Vxx.AppImage
 ./Artocarpus_scrcpy_gui-Vxx.AppImage
+
+
+已内置所有依赖（ADB + scrcpy 等），支持大多数 Debian 系及衍生发行版。
+
+ 技术栈
+编程语言：Python 3
+
+图形界面：Tkinter
+
+控制核心：ADB + scrcpy
+
+开发协助：Google Gemini & ChatGPT
+
+
+项目结构（简略）
+bash
+￼复制
+￼编辑
+├── main.py              # 主程序入口
+├── config/              # 用户设置与预设
+├── assets/              # 图标、样式
+├── locale/              # 多语言支持
+├── scrcpy/              # scrcpy 参数集成模块
+└── ...（完整代码请查看仓库）
