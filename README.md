@@ -2,80 +2,88 @@
 
 
 
-    # 🌿 Artocarpus - 多设备 scrcpy 图形界面 (GUI)
+
+                              
+# 🌿 Artocarpus - 多设备 scrcpy 图形界面 (Multi-device GUI for scrcpy)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/Platform-Linux--AppImage-important)](#)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen)](#)
 
-> ✨ 由 Google Gemini 与 ChatGPT 协作打造，一款专注于多设备控制的现代图形界面工具。
+> ✨ 由 Google Gemini 与 ChatGPT 协作打造，一款专注于多设备控制的现代图形界面工具。  
+> ✨ A modern GUI for scrcpy built with the help of Google Gemini and ChatGPT, focused on multi-device control.
 
 ---
 
-## 📦 简介
+## 📦 简介 / Introduction
 
-**Artocarpus** 是一款基于 Python 和 ChatGPT + Google Gemini 智能协作开发的 Linux 图形化工具，旨在简化 Android 设备的远程控制体验。它为 `scrcpy` 和 `ADB` 提供了一个强大、直观且美观的用户界面。
+**Artocarpus** 是一个基于 Python 和 AI 协作开发的图形化工具，为 `scrcpy` 与 `ADB` 提供更友好的多设备控制界面。  
+**Artocarpus** is a Python-based graphical tool for Android screen mirroring, offering a powerful and user-friendly interface for `scrcpy` and `ADB`.
 
-无需安装，直接运行 `.AppImage` 文件，即可快速启动并控制多部 Android 设备。
-
----
-
-## 🎯 主要功能特色
-
-| 功能               | 描述                                                                 |
-|--------------------|----------------------------------------------------------------------|
-| ⚡ 自动连接         | 启动时自动连接设备，无需输入命令                                     |
-| 🎨 主题切换         | 支持亮/暗色主题，自由切换                                           |
-| 📐 分辨率与码率设置 | 可调节 scrcpy 输出分辨率与 Mbps 码率                                 |
-| 📱 多设备同时连接   | 支持多设备同时连接并分别控制                                         |
-| 📷 自动截屏         | 每台设备独立截屏并自动保存                                           |
-| 📺 最大化窗口启动   | 启动时窗口自动最大化，适合全屏操作                                   |
-| 🌙 关闭手机屏幕     | 可关闭 Android 屏幕以节省电量或保护隐私                             |
-| 🎥 视频录制         | 支持录像并选择编码器进行保存                                         |
+无需安装，直接运行 `.AppImage` 即可使用。  
+No installation needed – just run the `.AppImage` file directly.
 
 ---
 
-## 🚀 使用方式
+## 🎯 功能特色 / Features
 
-1. 下载 `Artocarpus-x86_64.AppImage`  
-2. 给予执行权限  
-3. 直接运行
+| 功能 / Feature         | 描述 / Description                                                   |
+|------------------------|----------------------------------------------------------------------|
+| ⚡ 自动连接             | 启动自动连接设备 / Auto-connect to device on launch                 |
+| 🎨 主题切换             | 亮/暗主题支持 / Light & dark theme toggle                          |
+| 📐 分辨率码率调节       | 自定义输出分辨率和码率 / Set scrcpy resolution and bitrate         |
+| 📱 多设备支持           | 多设备同时连接控制 / Control multiple devices simultaneously        |
+| 📷 独立截屏             | 每台设备独立截屏 / Independent screenshot for each device          |
+| 📺 启动最大窗口         | 启动时全屏显示 / Start scrcpy in maximized window                  |
+| 🌙 可关闭设备屏幕       | 节电与隐私模式 / Turn off device screen while mirroring             |
+| 🎥 视频录制支持         | 可选择编码器录制画面 / Record screen with optional encoder          |
 
+---
+
+## 🚀 使用方式 / How to Use
+
+1. 下载 `.AppImage` 文件  
+   Download the `Artocarpus-x86_64.AppImage`
+2. 授予可执行权限  
+   Make it executable:
+   
 ```bash
-chmod +x Artocarpus-scrcpy_gui-Vxx.AppImage
-./Artocarpus-scrcpy_gui-Vxx.AppImage
+chmod +x Artocarpus-x86_64.AppImage
+./Artocarpus-x86_64.AppImage
 ```
 
-无需安装，支持大多数基于 Debian 的 Linux 系统（如 Ubuntu、Peppermint 等）。
+无需安装，支持大多数基于 Debian 的 Linux 系统（如 Ubuntu、Peppermint 等）。  
+No installation needed. Compatible with most Debian-based Linux distributions (Ubuntu, Peppermint, etc.)
 
 ---
 
-## 🛠 技术栈
+## 🛠 技术栈 / Tech Stack
 
 - 🐍 Python 3
 - 🖼 Tkinter
 - 📱 ADB + scrcpy
-- 🤖 Gemini + ChatGPT 协同开发辅助
+- 🤖 Gemini + ChatGPT（AI 协作开发）
 
 ---
 
-## 🧱 项目结构（简略）
+## 🧱 项目结构 / Project Structure
 
 ```
-├── main.py              # 主程序入口
-├── config/              # 用户设置与预设
-├── assets/              # 图标、样式
-├── locale/              # 多语言支持
-├── scrcpy/              # scrcpy 参数集成模块
+├── main.py              # 主程序入口 / Entry point
+├── config/              # 用户设置与预设 / User configs
+├── assets/              # 图标、样式 / Icons and themes
+├── locale/              # 多语言支持 / Language files
+├── scrcpy/              # scrcpy 模块封装 / scrcpy wrapper
 └── ...
 ```
 
 ---
 
-## 📜 开源协议
+## 📜 开源协议 / License
 
-本项目基于 [MIT License](LICENSE) 开源，欢迎自由使用、修改与分发，但请保留作者署名。
+本项目基于 [MIT License](LICENSE) 开源，欢迎自由使用、修改与分发。  
+This project is open-sourced under the [MIT License](LICENSE). Feel free to use, modify, and distribute it.
 
 ```
 Copyright © 2025
@@ -84,13 +92,15 @@ Author: JTLIAW
 
 ---
 
-## ☕ 感谢支持
+## ☕ 支持与反馈 / Feedback & Support
 
-如果你觉得这个项目对你有帮助，欢迎点个 ⭐Star 或 Fork 支持我继续改进！
+如果你觉得本项目有帮助，欢迎点个 ⭐Star 或 Fork 支持我继续改进！  
+If you find this project helpful, feel free to ⭐Star or Fork to support future development.
 
 ---
 
-## 🪴 项目名称由来
+## 🪴 名称由来 / About the Name
 
 Artocarpus 是面包树（Breadfruit Tree）的学名。  
-如同面包树的果实丰富、用途多样，本项目也希望成为你控制 Android 的高效工具 🌳                                
+如同面包树的果实丰富、用途多样，本项目也希望成为你控制 Android 的高效工具 🌳
+Just like the breadfruit tree (Artocarpus) provides abundant and useful fruits, this project hopes to offer versatile and rich functionality. 🌳
