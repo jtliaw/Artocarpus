@@ -43,8 +43,9 @@
 ```bash
 chmod +x Artocarpus_scrcpy_gui-Vxx.AppImage
 ./Artocarpus_scrcpy_gui-Vxx.AppImage
----
 
+
+##
 已内置所有依赖（ADB + scrcpy 等），支持大多数 Debian 系及衍生发行版。
 
  技术栈
