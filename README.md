@@ -2,7 +2,7 @@
 
 
 
-# 🌿 Artocarpus - A GUI for scrcpy with multi-device magic
+    # 🌿 Artocarpus - 多设备 scrcpy 图形界面 (GUI)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
@@ -15,39 +15,88 @@
 
 ## 📦 简介
 
-**Artocarpus** 是一个基于 Python + Tkinter 的图形化工具，旨在让你轻松通过 `scrcpy` 和 `ADB` 控制多个 Android 设备，支持自动连接、分辨率调节、视频录制与截屏等众多高级功能。
+**Artocarpus** 是一款基于 Python 和 ChatGPT + Google Gemini 智能协作开发的 Linux 图形化工具，旨在简化 Android 设备的远程控制体验。它为 `scrcpy` 和 `ADB` 提供了一个强大、直观且美观的用户界面。
 
-无需安装，一键运行 AppImage 文件，快速启动，直达目标。
-
----
-
-## 🎯 核心功能
-
-| 功能                 | 描述                                                                 |
-|----------------------|----------------------------------------------------------------------|
-| ⚡ 自动连接           | 启动时可自动连接上次设备，无需手动输入 IP                           |
-| 🎨 主题切换           | 支持亮色 / 暗色 UI 风格，夜间更舒适                                 |
-| 🖼 分辨率 / 码率调整  | 可视化调节 scrcpy 输出画质与 Mbps 带宽控制                          |
-| 🖱 多设备连接         | 支持多台设备同时连接，并独立管理截屏与控制                         |
-| 🔲 最大化窗口启动     | 可设置 App 启动时自动最大化窗口                                     |
-| 📷 自动截屏           | 每个设备的截屏将分别保存并记录                                      |
-| 🎥 视频录制           | 支持选择视频编码器录制手机屏幕                                     |
-| 🌙 屏幕关闭模式       | 可在连接后自动关闭 Android 屏幕（节能 & 隐私）                      |
+无需安装，直接运行 `.AppImage` 文件，即可快速启动并控制多部 Android 设备。
 
 ---
 
-## 🚀 如何使用
+## 🎯 主要功能特色
 
-只需下载 `.AppImage` 文件，赋予执行权限，双击运行即可：
+| 功能               | 描述                                                                 |
+|--------------------|----------------------------------------------------------------------|
+| ⚡ 自动连接         | 启动时自动连接设备，无需输入命令                                     |
+| 🎨 主题切换         | 支持亮/暗色主题，自由切换                                           |
+| 📐 分辨率与码率设置 | 可调节 scrcpy 输出分辨率与 Mbps 码率                                 |
+| 📱 多设备同时连接   | 支持多设备同时连接并分别控制                                         |
+| 📷 自动截屏         | 每台设备独立截屏并自动保存                                           |
+| 📺 最大化窗口启动   | 启动时窗口自动最大化，适合全屏操作                                   |
+| 🌙 关闭手机屏幕     | 可关闭 Android 屏幕以节省电量或保护隐私                             |
+| 🎥 视频录制         | 支持录像并选择编码器进行保存                                         |
+
+---
+
+## 🚀 使用方式
+
+1. 下载 `Artocarpus-x86_64.AppImage`  
+2. 给予执行权限  
+3. 直接运行
 
 ```bash
 chmod +x Artocarpus-x86_64.AppImage
 ./Artocarpus-x86_64.AppImage
+```
 
+无需安装，支持大多数基于 Debian 的 Linux 系统（如 Ubuntu、Peppermint 等）。
+
+---
+
+## 🛠 技术栈
+
+- 🐍 Python 3
+- 🖼 Tkinter
+- 📱 ADB + scrcpy
+- 🤖 Gemini + ChatGPT 协同开发辅助
+
+---
+
+## 🧱 项目结构（简略）
+
+```
 ├── main.py              # 主程序入口
-├── config/              # 配置与预设管理
-├── assets/              # 图标和样式
-├── locale/              # 多语言资源
-├── scrcpy/              # scrcpy 参数封装模块
+├── config/              # 用户设置与预设
+├── assets/              # 图标、样式
+├── locale/              # 多语言支持
+├── scrcpy/              # scrcpy 参数集成模块
 └── ...
+```
 
+---
+
+## 📜 开源协议
+
+本项目基于 [MIT License](LICENSE) 开源，欢迎自由使用、修改与分发，但请保留作者署名。
+
+```
+Copyright © 2025
+Author: JTLIAW
+```
+
+---
+
+## ☕ 感谢支持
+
+如果你觉得这个项目对你有帮助，欢迎点个 ⭐Star 或 Fork 支持我继续改进！
+
+---
+
+## 📬 联系作者
+
+如有建议或问题，欢迎在 GitHub 提 issue 或 PR。
+
+---
+
+## 🪴 项目名称由来
+
+Artocarpus 是面包树（Breadfruit Tree）的学名。  
+如同面包树的果实丰富、用途多样，本项目也希望成为你控制 Android 的高效工具 🌳                                
