@@ -1,7 +1,6 @@
 ![artocarpus](https://github.com/user-attachments/assets/290bbf63-14cd-4c6b-92a7-b8d732462ecc)
 
 
-![Peek 2025-06-16 21-29](https://github.com/user-attachments/assets/0e607671-df13-4e43-9406-74707f7b7318)
 
 
                               
@@ -14,6 +13,9 @@
 
 > ✨ 由 Google Gemini 与 ChatGPT 协作打造，一款专注于多设备控制的现代图形界面工具。  
 > ✨ A modern GUI for scrcpy built with the help of Google Gemini and ChatGPT, focused on multi-device control.
+
+![Peek 2025-06-16 21-29](https://github.com/user-attachments/assets/0e607671-df13-4e43-9406-74707f7b7318)
+
 
 ---
 
