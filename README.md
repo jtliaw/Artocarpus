@@ -44,6 +44,4 @@
 chmod +x Artocarpus-x86_64.AppImage
 ./Artocarpus-x86_64.AppImage
 
----
 
-## 🚀 如何使用
