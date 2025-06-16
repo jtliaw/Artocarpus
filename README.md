@@ -49,8 +49,8 @@ No installation needed – just run the `.AppImage` file directly.
    Make it executable:
    
 ```bash
-chmod +x Artocarpus-x86_64.AppImage
-./Artocarpus-x86_64.AppImage
+chmod +x Artocarpus_scrcpy_gui-Vxx.AppImage
+./Artocarpus_scrcpy_gui-Vxx.AppImage
 ```
 
 无需安装，支持大多数基于 Debian 的 Linux 系统（如 Ubuntu、Peppermint 等）。  
