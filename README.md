@@ -1,5 +1,3 @@
-# Artocarpus
-
 ![artocarpus](https://github.com/user-attachments/assets/290bbf63-14cd-4c6b-92a7-b8d732462ecc)
 
 
