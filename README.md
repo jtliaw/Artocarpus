@@ -43,8 +43,8 @@
 3. 直接运行
 
 ```bash
-chmod +x Artocarpus-x86_64.AppImage
-./Artocarpus-x86_64.AppImage
+chmod +x Artocarpus-scrcpy_gui-Vxx.AppImage
+./Artocarpus-scrcpy_gui-Vxx.AppImage
 ```
 
 无需安装，支持大多数基于 Debian 的 Linux 系统（如 Ubuntu、Peppermint 等）。
@@ -87,12 +87,6 @@ Author: JTLIAW
 ## ☕ 感谢支持
 
 如果你觉得这个项目对你有帮助，欢迎点个 ⭐Star 或 Fork 支持我继续改进！
-
----
-
-## 📬 联系作者
-
-如有建议或问题，欢迎在 GitHub 提 issue 或 PR。
 
 ---
 
