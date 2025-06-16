@@ -43,6 +43,9 @@
 ```bash
 chmod +x Artocarpus-x86_64.AppImage
 ./Artocarpus-x86_64.AppImage
+
+
+
 无需任何安装步骤，所有依赖均已内置，支持大多数 Linux 发行版（如 Debian、Ubuntu、Mint、Peppermint 等）。
 
 🛠 技术栈
