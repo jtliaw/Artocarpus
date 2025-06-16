@@ -107,3 +107,14 @@ If you find this project helpful, feel free to ⭐Star or Fork to support future
 Artocarpus 是面包树（Breadfruit Tree）的学名。  
 如同面包树的果实丰富、用途多样，本项目也希望成为你控制 Android 的高效工具！🌳  
 Just like the breadfruit tree (Artocarpus) provides abundant and useful fruits, this project hopes to offer versatile and rich functionality. 🌳
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE) © 2025 JTLIAW.
+
+It uses the following open-source components:
+
+- [scrcpy](https://github.com/Genymobile/scrcpy) (Apache 2.0)
+- [adb](https://android.googlesource.com/platform/system/core/+/master/adb/) (Apache 2.0)
+
+See [THIRD_PARTY_LICENSES.md](./THIRD_PARTY_LICENSES.md) for details.
