@@ -41,5 +41,5 @@
 只需下载 `.AppImage` 文件，赋予执行权限，双击运行即可：
 
 ```bash
-chmod +x Artocarpus-x86_64.AppImage
-./Artocarpus-x86_64.AppImage
+chmod +x Artocarpus_scrcpy_gui-Vxx.AppImage
+./Artocarpus_scrcpy_gui-Vxx.AppImage
