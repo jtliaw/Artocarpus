@@ -36,16 +36,7 @@
 
 ---
 
-## 🚀 如何使用
 
-只需下载 `.AppImage` 文件，赋予执行权限，双击运行即可：
-
-```bash
-chmod +x Artocarpus_scrcpy_gui-Vxx.AppImage
-./Artocarpus_scrcpy_gui-Vxx.AppImage
-
-
-##
 已内置所有依赖（ADB + scrcpy 等），支持大多数 Debian 系及衍生发行版。
 
  技术栈
@@ -68,3 +59,13 @@ bash
 ├── locale/              # 多语言支持
 ├── scrcpy/              # scrcpy 参数集成模块
 └── ...（完整代码请查看仓库）
+
+
+## 🚀 如何使用
+
+只需下载 `.AppImage` 文件，赋予执行权限，双击运行即可：
+
+```bash
+chmod +x Artocarpus_scrcpy_gui-Vxx.AppImage
+./Artocarpus_scrcpy_gui-Vxx.AppImage
+
