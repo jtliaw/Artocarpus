@@ -44,4 +44,10 @@
 chmod +x Artocarpus-x86_64.AppImage
 ./Artocarpus-x86_64.AppImage
 
+├── main.py              # 主程序入口
+├── config/              # 配置与预设管理
+├── assets/              # 图标和样式
+├── locale/              # 多语言资源
+├── scrcpy/              # scrcpy 参数封装模块
+└── ...
 
