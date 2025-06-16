@@ -48,17 +48,13 @@
 
 开发协助：Google Gemini & ChatGPT
 
-
-项目结构（简略）
-bash
-￼复制
-￼编辑
 ├── main.py              # 主程序入口
-├── config/              # 用户设置与预设
-├── assets/              # 图标、样式
-├── locale/              # 多语言支持
-├── scrcpy/              # scrcpy 参数集成模块
-└── ...（完整代码请查看仓库）
+├── config/              # 配置与预设管理
+├── assets/              # 图标和样式
+├── locale/              # 多语言资源
+├── scrcpy/              # scrcpy 参数封装模块
+└── ...
+
 
 
 ## 🚀 如何使用
