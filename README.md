@@ -87,12 +87,14 @@ No installation needed. Compatible with most Debian-based Linux distributions (U
 ## 🧱 项目结构 / Project Structure
 
 ```
-├── main.py              # 主程序入口 / Entry point
-├── config/              # 用户设置与预设 / User configs
-├── assets/              # 图标、样式 / Icons and themes
-├── locale/              # 多语言支持 / Language files
-├── scrcpy/              # scrcpy 模块封装 / scrcpy wrapper
-└── ...
+Artocarpus/
+├── scrcpy_gui.py           # 主程序入口
+├── config/                 # 配置文件夹
+├── assets/                 # 图标、样式等资源
+├── adb/, scrcpy/           # 内嵌的 ADB 与 scrcpy 可执行程序
+├── locale/                 # 多语言文件（zh, en）
+├── LICENSE                 # MIT 许可证
+└── THIRD_PARTY_LICENSES.md # 第三方组件说明
 ```
 
 ---
