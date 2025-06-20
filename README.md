@@ -18,29 +18,43 @@
 
 
 ---
+## ✨ 功能特性 / Features
 
-## 📦 简介 / Introduction
-
-**Artocarpus** 是一个基于 Python 和 AI 协作开发的图形化工具，为 `scrcpy` 与 `ADB` 提供更友好的多设备控制界面。  
-**Artocarpus** is a Python-based graphical tool for Android screen mirroring, offering a powerful and user-friendly interface for `scrcpy` and `ADB`.
-
-无需安装，直接运行 `.AppImage` 即可使用。  
-No installation needed – just run the `.AppImage` file directly.
+| 功能 Feature            | 描述 Description |
+|--------------------------|------------------|
+| 🔌 自动连接设备           | 自动检测设备并启动连接 / Auto-connect to Android device |
+| 🎨 主题与语言切换         | 支持浅色/深色主题，中/英文界面 / Light/Dark themes and multilingual UI |
+| 📺 自定义分辨率与码率     | 设置分辨率与 Mbps（码率） / Custom resolution and bitrate |
+| 🔲 最大化窗口启动         | scrcpy 启动时自动最大化 / Start scrcpy in maximized window |
+| 🎥 录像录制支持           | 支持视频录制，输出到指定路径 / Record screen with optional encoder |
+| 📷 独立截图保存           | 支持每个设备截图 / Per-device screenshot capture |
+| 🌙 关闭设备屏幕           | 启动时关闭手机屏幕省电 / Turn off device screen when mirroring |
+| 📁 双向文件/文件夹传输    | 支持电脑⇄手机之间互传文件或文件夹 / Transfer files & folders both ways |
+| 🔤 组合键使用说明目录     | 内建 scrcpy 常用组合键图示 / Built-in key shortcut reference |
+| 📱 多设备并行连接         | 同时控制多台设备 / Control multiple devices concurrently |
+| 💾 设置保存与自动加载     | 记录用户配置 / Save & load user presets automatically |
 
 ---
 
-## 🎯 功能特色 / Features
+## 📁 文件传输功能 / File Transfer (New!)
 
-| 功能 / Feature         | 描述 / Description                                                   |
-|------------------------|----------------------------------------------------------------------|
-| ⚡ 自动连接             | 启动自动连接设备 / Auto-connect to device on launch                 |
-| 🎨 主题切换             | 亮/暗主题支持 / Light & dark theme toggle                          |
-| 📐 分辨率码率调节       | 自定义输出分辨率和码率 / Set scrcpy resolution and bitrate         |
-| 📱 多设备支持           | 多设备同时连接控制 / Control multiple devices simultaneously        |
-| 📷 独立截屏             | 每台设备独立截屏 / Independent screenshot for each device          |
-| 📺 启动最大窗口         | 启动时全屏显示 / Start scrcpy in maximized window                  |
-| 🌙 可关闭设备屏幕       | 节电与隐私模式 / Turn off device screen while mirroring             |
-| 🎥 视频录制支持         | 可选择编码器录制画面 / Record screen with optional encoder          |
+- ✅ 支持 `adb push`（电脑 → 手机）
+- ✅ 支持 `adb pull`（手机 → 电脑）
+- ✅ 支持文件与整个文件夹的操作
+- ✅ 内建自定义路径浏览器（无需外部依赖）
+
+---
+
+## 🎮 快捷键说明 / Scrcpy Shortcut Directory
+
+内建一个快捷键速查页，方便新手快速掌握操作（支持语言切换）  
+Includes a dedicated shortcut panel for scrcpy hotkeys with language toggle
+
+示例：
+- `Ctrl + F`: 全屏 / Fullscreen
+- `Ctrl + S`: 截屏 / Screenshot
+- `Ctrl + R`: 录屏 / Start recording
+- 更多快捷键请见内建目录…
 
 ---
 
