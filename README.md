@@ -8,7 +8,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
-[![Platform](https://img.shields.io/badge/Platform-Linux--AppImage-important)](#)
+[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-blue)](#)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen)](#)
 
 > ✨ 由 Google Gemini 与 ChatGPT 协作打造，一款专注于多设备控制的现代图形界面工具。  
