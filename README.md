@@ -74,6 +74,19 @@ chmod +x Artocarpus_scrcpy_gui-Vxx.AppImage
 无需安装，支持大多数基于 Debian 的 Linux 系统（如 Ubuntu、Peppermint 等）。  
 No installation needed. Compatible with most Debian-based Linux distributions (Ubuntu, Peppermint, etc.)
 
+✅ Windows 用户（免安装 .exe 可执行文件）
+
+无需安装，下载 .exe 文件后双击即可运行：
+使用方法：
+
+    下载并解压 .zip 文件（或直接运行 .exe）
+
+    程序已内含 adb.exe 与 scrcpy.exe，无需额外配置
+
+    双击 Artocarpus.exe 即可开始使用！
+
+💡 若双击无反应，可尝试右键“以管理员身份运行”
+
 ---
 
 ## 🛠 技术栈 / Tech Stack
