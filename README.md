@@ -94,6 +94,50 @@ In addition to Linux AppImage, this project now supports a **portable Windows ve
 ⚠️ 若出现权限问题，可尝试 **右键 → 以管理员身份运行**  
 If permission issues occur, try **Right click → Run as administrator**
 ---
+---
+
+## 📱 手机准备指南 / How to Prepare Your Android Device
+
+要使 scrcpy 正常运行并连接到手机，请确保你已经完成以下步骤：  
+To connect your Android device successfully with scrcpy, please follow these steps:
+
+### 1️⃣ 启用开发者选项 / Enable Developer Options
+
+1. 打开手机设置 → 关于手机  
+   Go to **Settings → About phone**
+2. 连续点击 “版本号”或 “构建号” 7 次，直到提示开发者模式已开启  
+   Tap **"Build number"** 7 times to enable Developer Mode
+
+---
+
+### 2️⃣ 启用 USB 调试 / Enable USB Debugging
+
+1. 打开 **设置 → 系统 → 开发者选项**  
+   Go to **Settings → System → Developer Options**
+2. 找到并启用 **USB 调试**  
+   Find and enable **USB Debugging**
+
+---
+
+### 3️⃣ 使用 USB 数据线连接手机 / Connect via USB Cable
+
+使用数据线将手机连接至电脑，首次连接时手机可能会弹出提示：  
+Use a USB cable to connect the phone to your PC. You may see a prompt:
+
+- ✅ **允许 USB 调试？** → 勾选 “始终允许”，点击 “允许”  
+  "Allow USB debugging?" → Check **Always allow**, then tap **Allow**
+
+---
+
+### 📶 想使用无线投屏？ / Want to use scrcpy over Wi-Fi?
+
+你可以先使用 USB 连接，然后使用 adb 切换为 Wi-Fi 模式（程序内支持）  
+You can first connect via USB, then use `adb tcpip` to switch to Wi-Fi mode (GUI supports this).
+
+---
+
+📝 完成以上步骤后，你就可以使用 Artocarpus 正常连接控制你的 Android 设备啦！  
+After completing the steps above, you can use Artocarpus to control your Android device via scrcpy!
 
 ## 🛠 技术栈 / Tech Stack
 
