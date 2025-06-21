@@ -59,10 +59,10 @@ Includes a dedicated shortcut panel for scrcpy hotkeys with language toggle
 
 ---
 
-## 🚀 使用方式 / How to Use
+## 🚀 Linux 使用方式 / How to Use On Linux
 
 1. 下载 `.AppImage` 文件  
-   Download the `Artocarpus-x86_64.AppImage`
+   Download the `Artocarpus_scrcpy_gui.AppImage`
 2. 授予可执行权限  
    Make it executable:
    
