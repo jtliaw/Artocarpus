@@ -94,7 +94,6 @@ In addition to Linux AppImage, this project now supports a **portable Windows ve
 ⚠️ 若出现权限问题，可尝试 **右键 → 以管理员身份运行**  
 If permission issues occur, try **Right click → Run as administrator**
 ---
----
 
 ## 📱 手机准备指南 / How to Prepare Your Android Device
 
