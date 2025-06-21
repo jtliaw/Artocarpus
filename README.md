@@ -74,19 +74,25 @@ chmod +x Artocarpus_scrcpy_gui-Vxx.AppImage
 无需安装，支持大多数基于 Debian 的 Linux 系统（如 Ubuntu、Peppermint 等）。  
 No installation needed. Compatible with most Debian-based Linux distributions (Ubuntu, Peppermint, etc.)
 
-✅ Windows 用户（免安装 .exe 可执行文件）
+## 🪟 Windows 支持说明 / Windows Support
 
-无需安装，下载 .exe 文件后双击即可运行：
-使用方法：
+🧊 除了 Linux AppImage，本项目现已支持 **Windows 平台的免安装版本**！
 
-    下载并解压 .zip 文件（或直接运行 .exe）
+In addition to Linux AppImage, this project now supports a **portable Windows version (.exe)**.
 
-    程序已内含 adb.exe 与 scrcpy.exe，无需额外配置
+### ✅ Windows 使用方法 / How to Run on Windows
 
-    双击 Artocarpus.exe 即可开始使用！
+1. 下载 `.zip` 压缩包并解压，或直接下载 `.exe` 文件  
+   Download the `.zip` and extract, or get the `.exe` directly.
 
-💡 若双击无反应，可尝试右键“以管理员身份运行”
+2. 双击运行 `Artocarpus.exe` 启动程序  
+   Double-click `Artocarpus.exe` to launch the app.
 
+3. 程序内已包含 `adb.exe` 和 `scrcpy.exe`，无需安装任何依赖  
+   The app includes `adb.exe` and `scrcpy.exe`, no installation or setup required.
+
+⚠️ 若出现权限问题，可尝试 **右键 → 以管理员身份运行**  
+If permission issues occur, try **Right click → Run as administrator**
 ---
 
 ## 🛠 技术栈 / Tech Stack
