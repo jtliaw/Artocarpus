@@ -22,7 +22,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y fuse libfuse2 python3-pip
-          pip install -r requirements.txt
+          pip install ttkthemes
 
       - name: Prepare AppDir
         run: |
