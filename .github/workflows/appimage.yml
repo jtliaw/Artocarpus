@@ -73,7 +73,7 @@ jobs:
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: Artocarpus_scrcpy_gui v5.0 自动打包 ${{ env.BUILD_TIME }}
+          name: Artocarpus_scrcpy_gui v5.1 自动打包 ${{ env.BUILD_TIME }}
           tag_name: build-${{ github.run_number }}
           files: ${{ env.FILE_NAME }}
         env:
