@@ -58,7 +58,7 @@ jobs:
 
       - name: Build AppImage
         run: |
-          ./appimagetool AppDir
+          ARCH=x86_64 ./appimagetool AppDir
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
