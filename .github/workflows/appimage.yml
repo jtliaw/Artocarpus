@@ -61,7 +61,7 @@ jobs:
 
       - name: Build AppImage
         run: |
-          VERSION="v5.0"
+          VERSION="v5.1"
           BUILD_TIME="$(date +'%Y%m%d-%H%M%S')"
           ARCH="x86_64"
           FILE_NAME="Artocarpus_scrcpy_gui-${VERSION}-${BUILD_TIME}-${ARCH}.AppImage"
