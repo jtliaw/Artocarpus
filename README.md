@@ -8,7 +8,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
-[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-blue)](#)
+[![Platform](https://img.shields.io/badge/Platform-Linux-blue)](#)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen)](#)
 
 > ✨ 由 Google Gemini 与 ChatGPT 协作打造，一款专注于多设备控制的现代图形界面工具。  
@@ -74,25 +74,7 @@ chmod +x Artocarpus_scrcpy_gui-Vxx.AppImage
 无需安装，支持大多数基于 Debian 的 Linux 系统（如 Ubuntu、Peppermint 等）。  
 No installation needed. Compatible with most Debian-based Linux distributions (Ubuntu, Peppermint, etc.)
 
-## 🪟 Windows 支持说明 / Windows Support
 
-🧊 除了 Linux AppImage，本项目现已支持 **Windows 平台的免安装版本**！
-
-In addition to Linux AppImage, this project now supports a **portable Windows version (.exe)**.
-
-### ✅ Windows 使用方法 / How to Run on Windows
-
-1. 下载 `.zip` 压缩包并解压，或直接下载 `.exe` 文件  
-   Download the `.zip` and extract, or get the `.exe` directly.
-
-2. 双击运行 `Artocarpus.exe` 启动程序  
-   Double-click `Artocarpus.exe` to launch the app.
-
-3. 程序内已包含 `adb.exe` 和 `scrcpy.exe`，无需安装任何依赖  
-   The app includes `adb.exe` and `scrcpy.exe`, no installation or setup required.
-
-⚠️ 若出现权限问题，可尝试 **右键 → 以管理员身份运行**  
-If permission issues occur, try **Right click → Run as administrator**
 ---
 
 ## 📱 手机准备指南 / How to Prepare Your Android Device
