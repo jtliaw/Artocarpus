@@ -1,0 +1,68 @@
+name: Build Linux AppImage
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y appimagetool fuse libfuse2 python3-pip
+          pip install -r requirements.txt
+
+      - name: Prepare AppDir
+        run: |
+          mkdir -p AppDir/usr/bin
+          cp adb AppDir/usr/bin/
+          cp scrcpy AppDir/usr/bin/
+          cp scrcpy_gui.py AppDir/usr/bin/
+          cp scrcpy-server AppDir/usr/bin/
+          cp icon.png AppDir/
+
+          # 创建 AppRun 启动脚本
+          cat <<EOF > AppDir/AppRun
+          #!/bin/bash
+          cd /usr/bin
+          python3 scrcpy_gui.py "\$@"
+          EOF
+          chmod +x AppDir/AppRun
+
+          # 创建 Desktop 文件
+          cat <<EOF > AppDir/scrcpy_gui.desktop
+          [Desktop Entry]
+          Name=Scrcpy GUI
+          Exec=python3 scrcpy_gui.py
+          Icon=icon
+          Type=Application
+          Categories=Utility;
+          EOF
+
+      - name: Download AppImageTool
+        run: |
+          wget -O appimagetool https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
+          chmod +x appimagetool
+
+      - name: Build AppImage
+        run: |
+          ./appimagetool AppDir
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./*.AppImage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
