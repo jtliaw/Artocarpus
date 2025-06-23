@@ -33,11 +33,11 @@ jobs:
           cp scrcpy-server AppDir/usr/bin/
           cp icon.png AppDir/
 
-          # 创建 AppRun 启动脚本
+          # 创建修正后的 AppRun 启动脚本
           cat <<EOF > AppDir/AppRun
           #!/bin/bash
-          cd /usr/bin
-          python3 scrcpy_gui.py "\$@"
+          HERE="\$(dirname "\$(readlink -f "\${0}")")"
+          python3 "\$HERE/usr/bin/scrcpy_gui.py" "\$@"
           EOF
           chmod +x AppDir/AppRun
 
@@ -45,7 +45,7 @@ jobs:
           cat <<EOF > AppDir/Artocarpus_scrcpy_gui.desktop
           [Desktop Entry]
           Name=Artocarpus Scrcpy GUI
-          Exec=python3 scrcpy_gui.py
+          Exec=AppRun
           Icon=icon
           Type=Application
           Categories=Utility;
