@@ -29,32 +29,35 @@ jobs:
           mkdir -p AppDir/usr/bin
           mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
 
+          # 拷贝文件
           cp adb AppDir/usr/bin/
           cp scrcpy AppDir/usr/bin/
           cp scrcpy_gui.py AppDir/usr/bin/
           cp scrcpy-server AppDir/usr/bin/
 
-          cp icon.png AppDir/usr/share/icons/hicolor/256x256/apps/
+          # 拷贝图标（重点！）
+          cp icon.png AppDir/icon.png
+          cp icon.png AppDir/usr/share/icons/hicolor/256x256/apps/Artocarpus_scrcpy_gui.png
 
-          # 加执行权限
+          # 添加执行权限
           chmod +x AppDir/usr/bin/adb
           chmod +x AppDir/usr/bin/scrcpy
           chmod +x AppDir/usr/bin/scrcpy-server
 
           # 创建 AppRun 启动脚本
-          cat <<EOF > AppDir/AppRun
+          cat <<'EOF' > AppDir/AppRun
           #!/bin/bash
-          HERE="\$(dirname "\$(readlink -f "\${0}")")"
-          python3 "\$HERE/usr/bin/scrcpy_gui.py" "\$@"
+          HERE="$(dirname "$(readlink -f "${0}")")"
+          python3 "$HERE/usr/bin/scrcpy_gui.py" "$@"
           EOF
           chmod +x AppDir/AppRun
 
-          # 创建 Desktop 文件（注意：Icon=icon 不要加后缀）
-          cat <<EOF > AppDir/Artocarpus_scrcpy_gui.desktop
+          # 创建 Desktop 文件
+          cat <<'EOF' > AppDir/Artocarpus_scrcpy_gui.desktop
           [Desktop Entry]
           Name=Artocarpus Scrcpy GUI
           Exec=AppRun
-          Icon=icon
+          Icon=Artocarpus_scrcpy_gui
           Type=Application
           Categories=Utility;
           EOF
