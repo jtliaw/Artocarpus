@@ -1,88 +1,36 @@
-name: Build Linux AppImage
+- name: Prepare AppDir
+  run: |
+    mkdir -p AppDir/usr/bin
+    mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
 
-on:
-  push:
-    branches: [ "main" ]
-  workflow_dispatch:
+    # 拷贝文件
+    cp adb AppDir/usr/bin/
+    cp scrcpy AppDir/usr/bin/
+    cp scrcpy_gui.py AppDir/usr/bin/
+    cp scrcpy-server AppDir/usr/bin/
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+    # 复制图标，重点是这里！！！
+    cp icon.png AppDir/Artocarpus_scrcpy_gui.png
+    cp icon.png AppDir/usr/share/icons/hicolor/256x256/apps/Artocarpus_scrcpy_gui.png
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    chmod +x AppDir/usr/bin/adb
+    chmod +x AppDir/usr/bin/scrcpy
+    chmod +x AppDir/usr/bin/scrcpy-server
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+    # 创建 AppRun 启动脚本
+    cat <<'EOF' > AppDir/AppRun
+    #!/bin/bash
+    HERE="$(dirname "$(readlink -f "${0}")")"
+    python3 "$HERE/usr/bin/scrcpy_gui.py" "$@"
+    EOF
+    chmod +x AppDir/AppRun
 
-      - name: Install Dependencies
-        run: |
-          sudo apt update
-          sudo apt install -y fuse libfuse2 python3-pip
-          pip install ttkthemes
-
-      - name: Prepare AppDir
-        run: |
-          mkdir -p AppDir/usr/bin
-          mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
-
-          # 拷贝文件
-          cp adb AppDir/usr/bin/
-          cp scrcpy AppDir/usr/bin/
-          cp scrcpy_gui.py AppDir/usr/bin/
-          cp scrcpy-server AppDir/usr/bin/
-
-          # 拷贝图标（重点！）
-          cp icon.png AppDir/icon.png
-          cp icon.png AppDir/usr/share/icons/hicolor/256x256/apps/Artocarpus_scrcpy_gui.png
-
-          # 添加执行权限
-          chmod +x AppDir/usr/bin/adb
-          chmod +x AppDir/usr/bin/scrcpy
-          chmod +x AppDir/usr/bin/scrcpy-server
-
-          # 创建 AppRun 启动脚本
-          cat <<'EOF' > AppDir/AppRun
-          #!/bin/bash
-          HERE="$(dirname "$(readlink -f "${0}")")"
-          python3 "$HERE/usr/bin/scrcpy_gui.py" "$@"
-          EOF
-          chmod +x AppDir/AppRun
-
-          # 创建 Desktop 文件
-          cat <<'EOF' > AppDir/Artocarpus_scrcpy_gui.desktop
-          [Desktop Entry]
-          Name=Artocarpus Scrcpy GUI
-          Exec=AppRun
-          Icon=Artocarpus_scrcpy_gui
-          Type=Application
-          Categories=Utility;
-          EOF
-
-      - name: Download AppImageTool
-        run: |
-          wget -O appimagetool https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
-          chmod +x appimagetool
-
-      - name: Build AppImage
-        run: |
-          VERSION="v5.1"
-          BUILD_TIME="$(date +'%Y%m%d-%H%M%S')"
-          ARCH="x86_64"
-          FILE_NAME="Artocarpus_scrcpy_gui-${VERSION}-${BUILD_TIME}-${ARCH}.AppImage"
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_ENV
-          echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
-          ARCH=$ARCH ./appimagetool AppDir "$FILE_NAME"
-
-      - name: Upload to GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: Artocarpus_scrcpy_gui v5.1 自动打包 ${{ env.BUILD_TIME }}
-          tag_name: v5.1-${{ env.BUILD_TIME }}
-          files: ${{ env.FILE_NAME }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # 创建 Desktop 文件
+    cat <<'EOF' > AppDir/Artocarpus_scrcpy_gui.desktop
+    [Desktop Entry]
+    Name=Artocarpus Scrcpy GUI
+    Exec=AppRun
+    Icon=Artocarpus_scrcpy_gui
+    Type=Application
+    Categories=Utility;
+    EOF
