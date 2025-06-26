@@ -27,11 +27,14 @@ jobs:
       - name: Prepare AppDir
         run: |
           mkdir -p AppDir/usr/bin
+          mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
+
           cp adb AppDir/usr/bin/
           cp scrcpy AppDir/usr/bin/
           cp scrcpy_gui.py AppDir/usr/bin/
           cp scrcpy-server AppDir/usr/bin/
-          cp icon.png AppDir/
+
+          cp icon.png AppDir/usr/share/icons/hicolor/256x256/apps/
 
           # 加执行权限
           chmod +x AppDir/usr/bin/adb
@@ -46,7 +49,7 @@ jobs:
           EOF
           chmod +x AppDir/AppRun
 
-          # 创建 Desktop 文件
+          # 创建 Desktop 文件（注意：Icon=icon 不要加后缀）
           cat <<EOF > AppDir/Artocarpus_scrcpy_gui.desktop
           [Desktop Entry]
           Name=Artocarpus Scrcpy GUI
