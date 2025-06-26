@@ -37,10 +37,11 @@ jobs:
 
           # 拷贝图标（必须放在 AppDir 根目录，文件名必须和 Desktop 文件一致）
           cp icon.png AppDir/Artocarpus_scrcpy_gui.png
-          
+
           # 可选：拷贝到系统图标路径（美化菜单用）
           cp icon.png AppDir/usr/share/icons/hicolor/256x256/apps/Artocarpus_scrcpy_gui.png
 
+          # 加执行权限
           chmod +x AppDir/usr/bin/adb
           chmod +x AppDir/usr/bin/scrcpy
           chmod +x AppDir/usr/bin/scrcpy-server
