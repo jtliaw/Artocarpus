@@ -1,20 +1,16 @@
 # GitHub Actions Workflow: Build Linux AppImage for Artocarpus Scrcpy GUI
-# This workflow builds a AppImage file with the correct application icon embedded.
-# It is triggered on push to the main branch or can be run manually.
+# This "bulletproof" workflow builds an AppImage ensuring the icon is correctly embedded
+# by following both root-level and FHS-standard practices.
 
-name: Build Linux AppImage with Icon
+name: Build Linux AppImage with Icon (Final)
 
 on:
-  # Triggers the workflow on push events but only for the "main" branch
   push:
     branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     steps:
@@ -35,52 +31,54 @@ jobs:
           sudo apt-get install -y fuse libfuse2 python3-pip
           pip install ttkthemes
 
-      # --- Step 4: Prepare AppDir (Icon Fix) ---
-      # This simplified step ensures the icon and desktop file are correctly placed and named.
+      # --- Step 4: Prepare AppDir (Bulletproof Icon Fix) ---
+      # This step creates a fully compliant AppDir structure.
       - name: Prepare AppDir
         run: |
-          # Create the main binary directory
-          mkdir -p AppDir/usr/bin
-
-          # Copy application binaries and scripts
-          cp adb scrcpy scrcpy_gui.py scrcpy-server AppDir/usr/bin/
-
-          # Make the binaries executable
-          chmod +x AppDir/usr/bin/adb AppDir/usr/bin/scrcpy AppDir/usr/bin/scrcpy-server
-
-          # --- ICON AND DESKTOP FILE SETUP (CRITICAL PART) ---
-          # 1. Define the base name for the app. This MUST be consistent.
+          # 1. Define the base name for the app. This is used consistently everywhere.
           APP_NAME="Artocarpus_scrcpy_gui"
 
-          # 2. Copy the icon to the AppDir root and rename it to match APP_NAME.png
-          # This is the location appimagetool will look for the icon file.
-          cp icon.png "AppDir/${APP_NAME}.png"
+          # 2. Create the full Filesystem Hierarchy Standard (FHS) structure
+          mkdir -p AppDir/usr/bin
+          mkdir -p AppDir/usr/share/applications
+          mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
 
-          # 3. Create the AppRun launch script
+          # 3. Copy application binaries and make them executable
+          cp adb scrcpy scrcpy_gui.py scrcpy-server AppDir/usr/bin/
+          chmod +x AppDir/usr/bin/adb AppDir/usr/bin/scrcpy AppDir/usr/bin/scrcpy-server
+
+          # 4. Create the AppRun launch script
           cat <<'EOF' > AppDir/AppRun
           #!/bin/bash
           HERE="$(dirname "$(readlink -f "${0}")")"
-          # Use the system's python3 to run the script from within the AppDir
           exec python3 "$HERE/usr/bin/scrcpy_gui.py" "$@"
           EOF
           chmod +x AppDir/AppRun
 
-          # 4. Create the .desktop file in the AppDir root.
+          # --- ICON AND DESKTOP FILE SETUP (CRITICAL PART) ---
+          # 5. Create the .desktop file
           cat <<EOF > "AppDir/${APP_NAME}.desktop"
           [Desktop Entry]
           Name=Artocarpus Scrcpy GUI
           Comment=A GUI for the scrcpy Android screen mirroring tool
           Exec=AppRun
-          # The Icon key MUST match the base name of the icon file (without .png)
           Icon=${APP_NAME}
           Type=Application
           Categories=Utility;
           EOF
+          
+          # 6. Place the icon and .desktop file correctly
+          # A. Copy icon to the standard FHS path.
+          cp icon.png "AppDir/usr/share/icons/hicolor/256x256/apps/${APP_NAME}.png"
+          # B. CRITICAL: Also copy the icon to the AppDir root. appimagetool uses this as the source for the embedded icon.
+          cp icon.png "AppDir/${APP_NAME}.png"
+          # C. CRITICAL: Also copy the .desktop file to its standard FHS path.
+          cp "AppDir/${APP_NAME}.desktop" AppDir/usr/share/applications/
           # --- END OF CRITICAL PART ---
 
-          # Debugging step: List the final contents of the AppDir root to verify.
-          echo "--- Verifying AppDir Root Contents ---"
-          ls -l AppDir/
+          # Debugging step: List the final contents of the AppDir to verify everything is in place.
+          echo "--- Verifying AppDir Contents ---"
+          ls -lR AppDir/
 
       # --- Step 5: Download AppImageTool ---
       - name: Download AppImageTool
@@ -91,7 +89,7 @@ jobs:
       # --- Step 6: Build the AppImage ---
       - name: Build AppImage
         run: |
-          VERSION="v5.2" # Incremented version to distinguish the build
+          VERSION="v5.3" # Incremented version for the new build
           BUILD_TIME="$(date +'%Y%m%d-%H%M')"
           ARCH="x86_64"
           FILE_NAME="Artocarpus_scrcpy_gui-${VERSION}-${BUILD_TIME}-${ARCH}.AppImage"
@@ -100,7 +98,6 @@ jobs:
           echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_ENV
           echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
           
-          # Run the build process
           ./appimagetool AppDir "$FILE_NAME"
 
       # --- Step 7: Upload to GitHub Release ---
