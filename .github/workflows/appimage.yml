@@ -45,6 +45,7 @@ jobs:
 
           # 3. Copy application binaries and make them executable
           cp adb scrcpy scrcpy_gui.py scrcpy-server AppDir/usr/bin/
+          cp artocarpus_icon.png AppDir/usr/bin/
           chmod +x AppDir/usr/bin/adb AppDir/usr/bin/scrcpy AppDir/usr/bin/scrcpy-server
 
           # 4. Create the AppRun launch script
