@@ -70,9 +70,9 @@ jobs:
           
           # 6. Place the icon and .desktop file correctly
           # A. Copy icon to the standard FHS path.
-          cp icon.png "AppDir/usr/share/icons/hicolor/256x256/apps/${APP_NAME}.png"
+          cp artocarpus_icon.png "AppDir/usr/share/icons/hicolor/256x256/apps/${APP_NAME}.png"
           # B. CRITICAL: Also copy the icon to the AppDir root. appimagetool uses this as the source for the embedded icon.
-          cp icon.png "AppDir/${APP_NAME}.png"
+          cp artocarpus_icon.png "AppDir/${APP_NAME}.png"
           # C. CRITICAL: Also copy the .desktop file to its standard FHS path.
           cp "AppDir/${APP_NAME}.desktop" AppDir/usr/share/applications/
           # --- END OF CRITICAL PART ---
