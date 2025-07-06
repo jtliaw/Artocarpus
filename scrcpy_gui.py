@@ -203,7 +203,7 @@ class PCFileBrowser(tk.Toplevel):
 
 # --- 语言字典 ---
 LANGUAGES = {
-    "app_title": {"zh": "Artocarpus (Scrcpy 图形界面) v5.1", "en": "ARtocarpus (Scrcpy GUI) v5.1"},
+    "app_title": {"zh": "Artocarpus (Scrcpy 图形界面) v5.2", "en": "ARtocarpus (Scrcpy GUI) v5.2"},
     "tab_single_device": {"zh": "精细控制", "en": "Fine Control"},
     "tab_multi_device": {"zh": "多设备预设", "en": "Multi-Device Profiles"},
     "profile_label": {"zh": "预设 P{}", "en": "Profile P{}"},
