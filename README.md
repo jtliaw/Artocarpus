@@ -74,6 +74,8 @@ chmod +x Artocarpus_scrcpy_gui-Vxx.AppImage
 无需安装，支持大多数基于 Debian 的 Linux 系统（如 Ubuntu、Peppermint 等）。  
 No installation needed. Compatible with most Debian-based Linux distributions (Ubuntu, Peppermint, etc.)
 
+Scrcpy需要自己到scrcpy官网下载。
+Scrcpy needs to be downloaded from the scrcpy official website.
 
 ---
 
