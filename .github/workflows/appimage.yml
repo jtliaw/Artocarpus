@@ -1,8 +1,8 @@
 # GitHub Actions Workflow: Build Linux AppImage for Artocarpus Scrcpy GUI
-# This "bulletproof" workflow builds an AppImage ensuring the icon is correctly embedded
-# by following both root-level and FHS-standard practices.
+# This "bulletproof" workflow builds an AppImage without bundling scrcpy, adb, or scrcpy-server
+# Users will need to provide their own scrcpy and adb installations
 
-name: Build Linux AppImage with Icon (Final)
+name: Build Linux AppImage without Bundled Binaries
 
 on:
   push:
@@ -31,8 +31,7 @@ jobs:
           sudo apt-get install -y fuse libfuse2 python3-pip
           pip install ttkthemes
 
-      # --- Step 4: Prepare AppDir (Bulletproof Icon Fix) ---
-      # This step creates a fully compliant AppDir structure.
+      # --- Step 4: Prepare AppDir (No Bundled Binaries) ---
       - name: Prepare AppDir
         run: |
           # 1. Define the base name for the app. This is used consistently everywhere.
@@ -43,10 +42,9 @@ jobs:
           mkdir -p AppDir/usr/share/applications
           mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
 
-          # 3. Copy application binaries and make them executable
-          cp adb scrcpy scrcpy_gui.py scrcpy-server AppDir/usr/bin/
+          # 3. Copy only the Python script and icon (no scrcpy, adb, or scrcpy-server)
+          cp scrcpy_gui.py AppDir/usr/bin/
           cp artocarpus_icon.png AppDir/usr/bin/
-          chmod +x AppDir/usr/bin/adb AppDir/usr/bin/scrcpy AppDir/usr/bin/scrcpy-server
 
           # 4. Create the AppRun launch script
           cat <<'EOF' > AppDir/AppRun
@@ -61,7 +59,7 @@ jobs:
           cat <<EOF > "AppDir/${APP_NAME}.desktop"
           [Desktop Entry]
           Name=Artocarpus Scrcpy GUI
-          Comment=A GUI for the scrcpy Android screen mirroring tool
+          Comment=A GUI for the scrcpy Android screen mirroring tool (requires separate scrcpy and adb installation)
           Exec=AppRun
           Icon=${APP_NAME}
           Type=Application
