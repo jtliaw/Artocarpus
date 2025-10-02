@@ -100,12 +100,9 @@ jobs:
           # 修复：设置 ARCH 环境变量并运行 appimagetool
           ARCH=x86_64 ./appimagetool AppDir "$FILE_NAME"
 
-      # --- Step 7: Upload to GitHub Release ---
-      - name: Upload to GitHub Release
-        uses: softprops/action-gh-release@v2
+      # --- Step 7: Upload Artifact (只上传到工作流运行，不上传到 Release) ---
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: Artocarpus_scrcpy_gui ${{ env.VERSION }} (Build ${{ env.BUILD_TIME }})
-          tag_name: ${{ env.VERSION }}-${{ env.BUILD_TIME }}
-          files: ${{ env.FILE_NAME }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: Artocarpus-Linux-${{ env.VERSION }}
+          path: ${{ env.FILE_NAME }}
