@@ -49,33 +49,35 @@ jobs:
           $ARCH = "${{ env.ARCH }}"
           $ZIP_NAME = "Artocarpus_scrcpy_gui-${VERSION}-${BUILD_TIME}-${ARCH}.zip"
           
-          # 创建分发目录
-          New-Item -ItemType Directory -Path "dist/Artocarpus_scrcpy_gui" -Force
+          # 创建分发目录（使用不同的名称避免冲突）
+          New-Item -ItemType Directory -Path "dist/Artocarpus_scrcpy_gui_package" -Force
           
-          # 复制可执行文件和依赖项
-          Copy-Item "dist/Artocarpus_scrcpy_gui/*" -Destination "dist/Artocarpus_scrcpy_gui/" -Recurse
-          Copy-Item "artocarpus_icon.png" -Destination "dist/Artocarpus_scrcpy_gui/" -ErrorAction SilentlyContinue
+          # 复制 PyInstaller 生成的所有文件（使用 -Recurse 参数）
+          Copy-Item -Path "dist/Artocarpus_scrcpy_gui\*" -Destination "dist/Artocarpus_scrcpy_gui_package\" -Recurse
+          
+          # 复制图标文件
+          Copy-Item "artocarpus_icon.png" -Destination "dist/Artocarpus_scrcpy_gui_package\" -ErrorAction SilentlyContinue
           
           # 创建 README 文件说明需要单独安装 scrcpy 和 adb
           $README_CONTENT = @"
           Artocarpus Scrcpy GUI - Windows Version $VERSION
-
+      
           This is a GUI for the scrcpy Android screen mirroring tool.
-
+      
           IMPORTANT: This package does NOT include scrcpy or adb.
           You need to install them separately:
-
+      
           1. Download scrcpy from: https://github.com/Genymobile/scrcpy
           2. Download Android Platform Tools (adb) from: https://developer.android.com/studio/releases/platform-tools
-
+      
           After installation, you can specify the paths to scrcpy and adb in the GUI's configuration.
-
+      
           Build Date: $BUILD_TIME
           "@
-          $README_CONTENT | Out-File -FilePath "dist/Artocarpus_scrcpy_gui/README.txt" -Encoding UTF8
+          $README_CONTENT | Out-File -FilePath "dist/Artocarpus_scrcpy_gui_package\README.txt" -Encoding UTF8
           
           # 压缩为 ZIP 文件
-          Compress-Archive -Path "dist/Artocarpus_scrcpy_gui/*" -DestinationPath $ZIP_NAME -Force
+          Compress-Archive -Path "dist/Artocarpus_scrcpy_gui_package\*" -DestinationPath $ZIP_NAME -Force
           
           echo "ZIP_NAME=$ZIP_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
 
