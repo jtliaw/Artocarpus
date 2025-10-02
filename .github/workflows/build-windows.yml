@@ -1,8 +1,4 @@
-# GitHub Actions Workflow: Build Windows Executable for Artocarpus Scrcpy GUI
-# This workflow builds a Windows executable using PyInstaller with --onedir format
-# Users will need to provide their own scrcpy and adb installations
-
-name: Build Windows Executable (OneDir Format)
+name: Build Windows Executable
 
 on:
   push:
@@ -43,10 +39,7 @@ jobs:
       # --- Step 5: Build with PyInstaller (OneDir Format) ---
       - name: Build with PyInstaller
         run: |
-          # 创建 PyInstaller spec 文件或直接使用命令行
-          pyinstaller --onefile --windowed --name "Artocarpus_scrcpy_gui" --icon=artocarpus_icon.ico scrcpy_gui.py
-          # 注意：这里使用了 --onefile，如果需要 --onedir 请改为：
-          # pyinstaller --onedir --windowed --name "Artocarpus_scrcpy_gui" --icon=artocarpus_icon.ico scrcpy_gui.py
+          pyinstaller --onedir --windowed --name "Artocarpus_scrcpy_gui" scrcpy_gui.py
 
       # --- Step 6: Prepare Distribution Package ---
       - name: Prepare Distribution Package
@@ -60,25 +53,25 @@ jobs:
           New-Item -ItemType Directory -Path "dist/Artocarpus_scrcpy_gui" -Force
           
           # 复制可执行文件和依赖项
-          Copy-Item "dist/Artocarpus_scrcpy_gui.exe" -Destination "dist/Artocarpus_scrcpy_gui/"
-          Copy-Item "artocarpus_icon.png" -Destination "dist/Artocarpus_scrcpy_gui/"
+          Copy-Item "dist/Artocarpus_scrcpy_gui/*" -Destination "dist/Artocarpus_scrcpy_gui/" -Recurse
+          Copy-Item "artocarpus_icon.png" -Destination "dist/Artocarpus_scrcpy_gui/" -ErrorAction SilentlyContinue
           
           # 创建 README 文件说明需要单独安装 scrcpy 和 adb
           $README_CONTENT = @"
-          Artocarpus Scrcpy GUI - Windows Version $VERSION
+Artocarpus Scrcpy GUI - Windows Version $VERSION
 
-          This is a GUI for the scrcpy Android screen mirroring tool.
+This is a GUI for the scrcpy Android screen mirroring tool.
 
-          IMPORTANT: This package does NOT include scrcpy or adb.
-          You need to install them separately:
+IMPORTANT: This package does NOT include scrcpy or adb.
+You need to install them separately:
 
-          1. Download scrcpy from: https://github.com/Genymobile/scrcpy
-          2. Download Android Platform Tools (adb) from: https://developer.android.com/studio/releases/platform-tools
+1. Download scrcpy from: https://github.com/Genymobile/scrcpy
+2. Download Android Platform Tools (adb) from: https://developer.android.com/studio/releases/platform-tools
 
-          After installation, you can specify the paths to scrcpy and adb in the GUI's configuration.
+After installation, you can specify the paths to scrcpy and adb in the GUI's configuration.
 
-          Build Date: $BUILD_TIME
-          "@
+Build Date: $BUILD_TIME
+"@
           $README_CONTENT | Out-File -FilePath "dist/Artocarpus_scrcpy_gui/README.txt" -Encoding UTF8
           
           # 压缩为 ZIP 文件
@@ -86,12 +79,9 @@ jobs:
           
           echo "ZIP_NAME=$ZIP_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append
 
-      # --- Step 7: Upload to GitHub Release ---
-      - name: Upload to GitHub Release
-        uses: softprops/action-gh-release@v2
+      # --- Step 7: Upload Artifact (只上传到工作流运行，不上传到 Release) ---
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: Artocarpus_scrcpy_gui ${{ env.VERSION }} Windows (Build ${{ env.BUILD_TIME }})
-          tag_name: windows-${{ env.VERSION }}-${{ env.BUILD_TIME }}
-          files: ${{ env.ZIP_NAME }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: Artocarpus-Windows-${{ env.VERSION }}
+          path: ${{ env.ZIP_NAME }}
