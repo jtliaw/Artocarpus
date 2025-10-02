@@ -65,20 +65,20 @@ jobs:
           
           # 创建 README 文件说明需要单独安装 scrcpy 和 adb
           $README_CONTENT = @"
-Artocarpus Scrcpy GUI - Windows Version $VERSION
+          Artocarpus Scrcpy GUI - Windows Version $VERSION
 
-This is a GUI for the scrcpy Android screen mirroring tool.
+          This is a GUI for the scrcpy Android screen mirroring tool.
 
-IMPORTANT: This package does NOT include scrcpy or adb.
-You need to install them separately:
+          IMPORTANT: This package does NOT include scrcpy or adb.
+          You need to install them separately:
 
-1. Download scrcpy from: https://github.com/Genymobile/scrcpy
-2. Download Android Platform Tools (adb) from: https://developer.android.com/studio/releases/platform-tools
+          1. Download scrcpy from: https://github.com/Genymobile/scrcpy
+          2. Download Android Platform Tools (adb) from: https://developer.android.com/studio/releases/platform-tools
 
-After installation, you can specify the paths to scrcpy and adb in the GUI's configuration.
+          After installation, you can specify the paths to scrcpy and adb in the GUI's configuration.
 
-Build Date: $BUILD_TIME
-"@
+          Build Date: $BUILD_TIME
+          "@
           $README_CONTENT | Out-File -FilePath "dist/Artocarpus_scrcpy_gui/README.txt" -Encoding UTF8
           
           # 压缩为 ZIP 文件
