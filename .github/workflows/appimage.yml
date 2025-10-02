@@ -88,7 +88,7 @@ jobs:
       # --- Step 6: Build the AppImage ---
       - name: Build AppImage
         run: |
-          VERSION="v5.2" # Incremented version for the new build
+          VERSION="v5.3" # Incremented version for the new build
           BUILD_TIME="$(date +'%Y%m%d-%H%M')"
           ARCH="x86_64"
           FILE_NAME="Artocarpus_scrcpy_gui-${VERSION}-${BUILD_TIME}-${ARCH}.AppImage"
