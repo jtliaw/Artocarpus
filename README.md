@@ -78,6 +78,14 @@ No installation needed. Compatible with most Debian-based Linux distributions (U
 ### Scrcpy needs to be downloaded from the github scrcpy official website.
 
 ---
+## 🚀 Windows 使用方式 / How to Use On Windows
+windows版的Artocarpus需要将scrcpy内的所有东西复制到Artocarpus的文件夹内！
+请到这里下载：
+https://github.com/Genymobile/scrcpy
+
+双击Artocarpus_scrcpy_gui.exe即可运行！
+
+---
 
 ## 📱 手机准备指南 / How to Prepare Your Android Device
 
