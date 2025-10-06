@@ -324,7 +324,7 @@ class ScrcpyGUI:
         self.push_source_pc_path_var = tk.StringVar()
 
         self.master.title(self._("app_title"))
-        self.master.geometry("720x740")
+        self.master.geometry("720x730")
 
     # 设置窗口图标
         try:
