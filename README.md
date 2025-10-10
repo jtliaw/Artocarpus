@@ -61,6 +61,19 @@ Includes a dedicated shortcut panel for scrcpy hotkeys with language toggle
 
 ## 🚀 Linux 使用方式 / How to Use On Linux
 
+0. 如果Appimage在某些Linux系统上无法启动，直接下载Source code.zip解压后使用终端运行
+```bash
+chmod +x Install_Artocarpus.sh
+./Install_Artocarpus.sh
+```
+
+0. If the Appimage cannot be started on some Linux systems, download the Source code.zip file directly, unzip it, and run it in the terminal.
+```bash
+chmod +x Install_Artocarpus.sh
+./Install_Artocarpus.sh
+```
+
+
 1. 下载 `.AppImage` 文件  
    Download the `Artocarpus_scrcpy_gui.AppImage`
 2. 授予可执行权限  
