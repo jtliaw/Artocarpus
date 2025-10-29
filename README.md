@@ -178,6 +178,9 @@ Author: JTLIAW
 ```
 
 ---
+### 💻 AI 开发说明
+本项目使用 AI 工具 (DeepSeek 和 Claude 4) 辅助开发。GPLv3 许可证适用于项目中体现了作者（Jt Liaw）创造性劳动的整体作品。
+---
 
 ## ☕ 支持与反馈 / Feedback & Support
 
@@ -195,6 +198,10 @@ Just like the breadfruit tree (Artocarpus) provides abundant and useful fruits, 
 ## License
 
 This project is licensed under the [MIT License](./LICENSE) © 2025 JTLIAW.
+
+### Development Note
+
+This project was developed with the assistance of AI tools (DeepSeek and Claude 4). The MIT License applies to the overall work that embodies the creative input of the author.
 
 It uses the following open-source components:
 
