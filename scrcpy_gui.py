@@ -1,3 +1,11 @@
+"""
+Artocarpus (Scrcpy GUI)
+
+Copyright (C) 2025 JTLIAW
+
+Licensed under the MIT License. See the LICENSE file for details.
+"""
+
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 import subprocess
