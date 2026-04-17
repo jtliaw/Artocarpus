@@ -29,7 +29,7 @@ jobs:
       # --- Step 4: Create Version Info ---
       - name: Create Version Info
         run: |
-          $VERSION = "v5.3"
+          $VERSION = "v5.5"
           $BUILD_TIME = Get-Date -Format "yyyyMMdd-HHmm"
           $ARCH = "x64"
           echo "VERSION=$VERSION" | Out-File -FilePath $env:GITHUB_ENV -Append
