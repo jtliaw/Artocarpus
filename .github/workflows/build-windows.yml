@@ -9,6 +9,10 @@ jobs:
   build-windows:
     runs-on: windows-latest
 
+    # --- 添加下面这两行环境变量 ---
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     steps:
       # --- Step 1: Checkout Repository ---
       - name: Checkout Repository
@@ -29,7 +33,7 @@ jobs:
       # --- Step 4: Create Version Info ---
       - name: Create Version Info
         run: |
-          $VERSION = "v5.5"
+          $VERSION = "v5.6"
           $BUILD_TIME = Get-Date -Format "yyyyMMdd-HHmm"
           $ARCH = "x64"
           echo "VERSION=$VERSION" | Out-File -FilePath $env:GITHUB_ENV -Append
