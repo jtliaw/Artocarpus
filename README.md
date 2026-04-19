@@ -11,8 +11,8 @@
 [![Platform](https://img.shields.io/badge/Platform-Linux-blue)](#)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen)](#)
 
-> ✨ 由 Google Gemini 与 ChatGPT 协作打造，一款专注于多设备控制的现代图形界面工具。  
-> ✨ A modern GUI for scrcpy built with the help of Google Gemini and ChatGPT, focused on multi-device control.
+> ✨ 由 Claude,Gemini 与 ChatGPT 协作打造，一款专注于多设备控制的现代图形界面工具。  
+> ✨ A modern GUI for scrcpy built with the help of Claude,Gemini and ChatGPT, focused on multi-device control.
 
 ![Peek 2025-06-20 13-37](https://github.com/user-attachments/assets/d4f3e574-36fd-49b6-81cd-20d0b8166422)
 
