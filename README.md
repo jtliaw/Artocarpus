@@ -24,9 +24,9 @@
 | 功能 Feature            | 描述 Description |
 |--------------------------|------------------|
 | 🔌 自动连接设备           | 自动检测设备并启动连接 / Auto-connect to Android device |
-| 🎨 主题与语言切换         | 支持浅色/深色主题，中/英文界面 / Light/Dark themes and multilingual UI |
+| 🎨 主题与语言切换         | 支持多个主题，中/英文界面 / Light/Dark themes and multilingual UI |
 | 📺 自定义分辨率与码率     | 设置分辨率与 Mbps（码率） / Custom resolution and bitrate |
-| 🔲 最大化窗口启动         | scrcpy 启动时自动最大化 / Start scrcpy in maximized window |
+| 🔲 最大化窗口/全屏启动     | scrcpy 启动时自动最大化 / 全屏 / Start scrcpy in maximized window / Full Screen |
 | 🎥 录像录制支持           | 支持视频录制，输出到指定路径 / Record screen with optional encoder |
 | 📷 独立截图保存           | 支持每个设备截图 / Per-device screenshot capture |
 | 🌙 关闭设备屏幕           | 启动时关闭手机屏幕省电 / Turn off device screen when mirroring |
@@ -61,34 +61,24 @@ Includes a dedicated shortcut panel for scrcpy hotkeys with language toggle
 
 ## 🚀 Linux 使用方式 / How to Use On Linux
 
-0. 如果Appimage在某些Linux系统上无法启动，直接下载Source code.zip解压后使用终端运行
+如果Appimage在某些Linux系统上无法启动，直接下载Source code.zip解压后使用终端运行
 ```bash
 chmod +x Install_Artocarpus.sh
 ./Install_Artocarpus.sh
 ```
 
-0. If the Appimage cannot be started on some Linux systems, download the Source code.zip file directly, unzip it, and run it in the terminal.
+If the Appimage cannot be started on some Linux systems, download the Source code.zip file directly, unzip it, and run it in the terminal.
 ```bash
 chmod +x Install_Artocarpus.sh
 ./Install_Artocarpus.sh
 ```
 
 
-1. 下载 `.AppImage` 文件  
-   Download the `Artocarpus_scrcpy_gui.AppImage`
-2. 授予可执行权限  
-   Make it executable:
-   
-```bash
-chmod +x Artocarpus_scrcpy_gui-Vxx.AppImage
-./Artocarpus_scrcpy_gui-Vxx.AppImage
-```
 
 无需安装，支持大多数基于 Debian 的 Linux 系统（如 Ubuntu、Peppermint 等）。  
 No installation needed. Compatible with most Debian-based Linux distributions (Ubuntu, Peppermint, etc.)
 
-### Scrcpy需要自己到github scrcpy官网下载。
-### Scrcpy needs to be downloaded from the github scrcpy official website.
+
 
 ---
 ## 🚀 Windows 使用方式 / How to Use On Windows
