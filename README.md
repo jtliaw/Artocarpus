@@ -4,7 +4,7 @@
 
 
                               
-# 🌿 Artocarpus - 多设备 scrcpy 图形界面 (Multi-device GUI for scrcpy)
+# 🌿 Artocarpus - 多功能 scrcpy 图形界面 (Multifunctional GUI for scrcpy)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
