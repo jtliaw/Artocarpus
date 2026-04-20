@@ -61,24 +61,16 @@ Includes a dedicated shortcut panel for scrcpy hotkeys with language toggle
 
 ## 🚀 Linux 使用方式 / How to Use On Linux
 
-如果Appimage在某些Linux系统上无法启动，直接下载Source code.zip解压后使用终端运行
+直接下载Source code.zip解压后使用终端运行
 ```bash
 chmod +x Install_Artocarpus.sh
 ./Install_Artocarpus.sh
 ```
-
-If the Appimage cannot be started on some Linux systems, download the Source code.zip file directly, unzip it, and run it in the terminal.
+Download the Source code.zip file directly, unzip it, and run it in the terminal.
 ```bash
 chmod +x Install_Artocarpus.sh
 ./Install_Artocarpus.sh
 ```
-
-
-
-无需安装，支持大多数基于 Debian 的 Linux 系统（如 Ubuntu、Peppermint 等）。  
-No installation needed. Compatible with most Debian-based Linux distributions (Ubuntu, Peppermint, etc.)
-
-
 
 ---
 ## 🚀 Windows 使用方式 / How to Use On Windows
