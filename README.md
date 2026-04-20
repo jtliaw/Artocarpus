@@ -148,7 +148,7 @@ After completing the steps above, you can use Artocarpus to control your Android
 - 🐍 Python 3
 - 🖼 Tkinter
 - 📱 ADB + scrcpy
-- 🤖 Gemini + ChatGPT（AI 协作开发）
+- 🤖 Claude + Gemini + ChatGPT（AI 协作开发）
 
 ---
 
@@ -180,7 +180,7 @@ Author: JTLIAW
 ---
 ### 开发说明
 
-本项目使用AI工具（Gemini 和 ChatGpt）辅助开发。MIT许可证适用于项目中体现了作者创造性劳动的整体作品。
+本项目使用AI工具（Claud,Gemini,ChatGpt）辅助开发。MIT许可证适用于项目中体现了作者创造性劳动的整体作品。
 ---
 
 ## ☕ 支持与反馈 / Feedback & Support
@@ -202,7 +202,7 @@ This project is licensed under the [MIT License](./LICENSE) © 2025 JTLIAW.
 
 ### Development Note
 
-This project was developed with the assistance of AI tools (Gemini 和 ChatGpt). The MIT License applies to the overall work that embodies the creative input of the author.
+This project was developed with the assistance of AI tools (Claude,Gemini,ChatGpt). The MIT License applies to the overall work that embodies the creative input of the author.
 
 It uses the following open-source components:
 
