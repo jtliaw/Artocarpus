@@ -180,7 +180,7 @@ Author: JTLIAW
 ---
 ### 开发说明
 
-本项目使用AI工具（Claud,Gemini,ChatGpt）辅助开发。MIT许可证适用于项目中体现了作者创造性劳动的整体作品。
+本项目使用AI工具（Claude,Gemini,ChatGpt）辅助开发。MIT许可证适用于项目中体现了作者创造性劳动的整体作品。
 ---
 
 ## ☕ 支持与反馈 / Feedback & Support
