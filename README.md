@@ -23,7 +23,7 @@
 
 | 功能 Feature            | 描述 Description |
 |--------------------------|------------------|
-| 📷 虚拟摄像头 (New!)	  | 手机摄像头替代 WebCam，支持 Zoom/Classroom	/ Mobile phone camera replaces Webcam, supports Zoom/Classroom.|
+| 📷 虚拟摄像头 (New!)	  | 手机摄像头替代 WebCam，支持 Classroom	/ Mobile phone camera replaces Webcam, supports Classroom.|
 | 🗑️ 软件卸载 (New!)	    | 一键删除手机自带/默认冗余软件 / One-click removal of pre-installed/default redundant software on your phone|
 | 🔌 自动连接设备           | 自动检测设备并启动连接 / Auto-connect to Android device |
 | 🎨 主题与语言切换         | 支持多个主题，中/英文界面 / Light/Dark themes and multilingual UI |
@@ -42,7 +42,7 @@
 ## 📹 虚拟摄像头功能 / Virtual Camera (Linux Only)
 
     [!IMPORTANT]
-    此功能目前仅支持 Linux 系统。可以将手机摄像头映射为系统虚拟摄像头，供 Google Classroom, Zoom, Teams 等软件使用。
+    此功能目前仅支持 Linux 系统。可以将手机摄像头映射为系统虚拟摄像头，供 Google Classroom, 等软件使用。
 
     ✅ 高清传输手机画面至电脑摄像头驱动。
 
