@@ -105,6 +105,12 @@ https://github.com/Genymobile/scrcpy
 
 双击Artocarpus_scrcpy_gui.exe即可运行！
 
+For the Windows version of Artocarpus, you need to copy everything from the scrcpy folder to the Artocarpus folder! 
+Please download it here: https://github.com/Genymobile/scrcpy
+
+Double-click Artocarpus_scrcpy_gui.exe to run it!
+
+
 ---
 
 ## 📱 手机准备指南 / How to Prepare Your Android Device
