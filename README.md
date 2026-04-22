@@ -23,6 +23,8 @@
 
 | 功能 Feature            | 描述 Description |
 |--------------------------|------------------|
+| 📷 虚拟摄像头 (New!)	  | 手机摄像头替代 WebCam，支持 Zoom/Classroom	🐧 Linux Only|
+| 🗑️ 软件卸载 (New!)	    | 一键删除手机自带/默认冗余软件 (Debloat)|
 | 🔌 自动连接设备           | 自动检测设备并启动连接 / Auto-connect to Android device |
 | 🎨 主题与语言切换         | 支持多个主题，中/英文界面 / Light/Dark themes and multilingual UI |
 | 📺 自定义分辨率与码率     | 设置分辨率与 Mbps（码率） / Custom resolution and bitrate |
