@@ -1,0 +1,117 @@
+# 放到你的仓库里：.github/workflows/build-windows.yml
+# 用法：GitHub 网页 -> Actions -> "Build Windows" -> Run workflow；约 5～10 分钟后在运行结果页底部下载 Artocarpus-Windows
+# 想发正式版：给仓库打一个 v 开头的标签（例如 v1.0.0），会自动把压缩包挂到 Releases 里
+name: Build Windows
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write   # 只有"打标签发 Release"时才用到
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装 Python 依赖
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pyinstaller==6.22.3 pillow mss pynput
+
+      - name: 下载 scrcpy（Windows 64 位，官方压缩包里自带 adb）
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $rel = Invoke-RestMethod -Uri "https://api.github.com/repos/Genymobile/scrcpy/releases/latest" `
+                   -Headers @{ Authorization = "Bearer $env:GH_TOKEN"; "User-Agent" = "artocarpus-build" }
+          $asset = $rel.assets | Where-Object { $_.name -like "*win64*.zip" } | Select-Object -First 1
+          if (-not $asset) { throw "没有找到 scrcpy 的 win64 压缩包" }
+          Write-Host "使用 scrcpy $($rel.tag_name)：$($asset.name)"
+          Invoke-WebRequest -Uri $asset.browser_download_url -OutFile scrcpy.zip
+          Expand-Archive scrcpy.zip -DestinationPath scrcpy_tmp
+          $dirs  = @(Get-ChildItem scrcpy_tmp -Directory)
+          $files = @(Get-ChildItem scrcpy_tmp -File)
+          if ($dirs.Count -eq 1 -and $files.Count -eq 0) { Move-Item $dirs[0].FullName scrcpy_win } else { Move-Item scrcpy_tmp scrcpy_win }
+          if (-not (Test-Path scrcpy_win\scrcpy.exe)) { throw "压缩包里没有 scrcpy.exe，目录结构可能变了" }
+          if (-not (Test-Path scrcpy_win\adb.exe))    { throw "压缩包里没有 adb.exe，目录结构可能变了" }
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Genymobile/scrcpy/master/LICENSE" -OutFile scrcpy_win\LICENSE-scrcpy.txt
+          & scrcpy_win\scrcpy.exe --version
+          & scrcpy_win\adb.exe version
+
+      - name: 用 PyInstaller 打包
+        shell: pwsh
+        run: |
+          # 自动在仓库里找到主程序和翻译模块（不管放在根目录还是 app/ 里）
+          $gui = Get-ChildItem -Path . -Recurse -Filter scrcpy_gui.py | Select-Object -First 1
+          if (-not $gui) { throw "仓库里没有找到 scrcpy_gui.py" }
+          $sky = Get-ChildItem -Path . -Recurse -Filter skylark_ai.py | Select-Object -First 1
+          if (-not $sky) { throw "仓库里没有找到 skylark_ai.py" }
+          if ($sky.DirectoryName -ne $gui.DirectoryName) { Copy-Item $sky.FullName $gui.DirectoryName -Force }
+          Push-Location $gui.DirectoryName
+          $piArgs = @("--noconfirm", "--windowed", "--name", "Artocarpus",
+                      "--add-data", "$((Join-Path $gui.DirectoryName 'skylark_ai.py'));.",
+                      "--hidden-import", "skylark_ai", "--hidden-import", "mss",
+                      "--collect-submodules", "pynput",
+                      "scrcpy_gui.py")
+          pyinstaller @piArgs
+          if ($LASTEXITCODE -ne 0) { throw "PyInstaller 失败" }
+          $dist = Join-Path $gui.DirectoryName "dist\Artocarpus"
+          Pop-Location
+
+          # 把 scrcpy + adb 放进程序的内部目录：程序找工具时会先看这里
+          $inner = Join-Path $dist "_internal"
+          if (-not (Test-Path $inner)) { $inner = $dist }
+          Copy-Item "$env:GITHUB_WORKSPACE\scrcpy_win\*" $inner -Recurse -Force
+
+          Set-Content -Path (Join-Path $dist "README_Windows.txt") -Encoding utf8 -Value @"
+          Artocarpus（Windows 版）
+          1. 双击 Artocarpus.exe 运行（不需要另外安装 Python、adb、scrcpy）。
+          2. 手机要打开"开发者选项"里的"USB 调试"，用数据线连接；部分手机需要先在电脑上装厂商的 USB 驱动。
+          3. 屏幕翻译需要自己的 Gemini API 密钥（https://aistudio.google.com/app/apikey），在软件设置里填写。
+             密钥以明文保存在用户目录的 .skylark_ai 文件夹里，请不要把这个文件夹发给别人。
+          4. Windows 版没有"摄像头"功能。
+          5. 杀毒软件偶尔会误报，请从自己的 GitHub 仓库下载。
+          "@
+          Set-Content -Path (Join-Path $dist "THIRD_PARTY_NOTICES.txt") -Encoding utf8 -Value @"
+          本程序附带 scrcpy（Genymobile/scrcpy，Apache-2.0 许可证，见 LICENSE-scrcpy.txt）
+          及其官方压缩包里自带的 adb。这些文件按官方压缩包原样附带，未作修改。
+          "@
+          "DIST_DIR=$dist" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: 冒烟测试（工具能运行；程序启动 8 秒不闪退）
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          $inner = Join-Path $env:DIST_DIR "_internal"
+          if (-not (Test-Path $inner)) { $inner = $env:DIST_DIR }
+          & "$inner\adb.exe" version
+          & "$inner\scrcpy.exe" --version
+          $p = Start-Process -FilePath (Join-Path $env:DIST_DIR "Artocarpus.exe") -PassThru
+          Start-Sleep -Seconds 8
+          if ($p.HasExited) { throw "程序启动后立即退出，退出码 $($p.ExitCode)" }
+          Stop-Process -Id $p.Id -Force
+          Write-Host "启动正常"
+
+      - name: 压缩
+        shell: pwsh
+        run: Compress-Archive -Path "$env:DIST_DIR\*" -DestinationPath Artocarpus-Windows.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Artocarpus-Windows
+          path: Artocarpus-Windows.zip
+
+      - name: 发布到 Releases（只在打标签时）
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: Artocarpus-Windows.zip
